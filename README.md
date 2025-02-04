@@ -8,7 +8,7 @@ We will be using React Native to make a mobile app. For project management and v
 
 The coding languages on Front end will be JavaScript and Tailwind.
 
-Coding language in Back End will be Java and we will also use Firebase.
+On Back end we will be using Node js.
 
 For testing, we will use Expo Go. We will be testing the app both manually and using unit tests.
 
