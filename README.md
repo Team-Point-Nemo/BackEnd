@@ -13,3 +13,19 @@ On Back end we will be using Node js.
 For testing, we will use Expo Go. We will be testing the app both manually and using unit tests.
 
 Additionally, we will practise using branches in Git.
+
+## Creators
+
+Ahlgren Heidi - ihmismieli
+
+Hintsala Netta - hinnet
+
+Mattila Anna - anmattila
+
+Virolainen Jukka - Jukalekvi
+
+Wong Huang - Tiriele
+
+#### Link to the project's frontend repository
+
+https://github.com/Team-Point-Nemo/FrontEnd
