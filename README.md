@@ -8,8 +8,24 @@ We will be using React Native to make a mobile app. For project management and v
 
 The coding languages on Front end will be JavaScript and Tailwind.
 
-Coding language in Back End will be Java and we will also use Firebase.
+On Back end we will be using Firebase.
 
 For testing, we will use Expo Go. We will be testing the app both manually and using unit tests.
 
 Additionally, we will practise using branches in Git.
+
+## Creators
+
+Ahlgren Heidi - ihmismieli
+
+Hintsala Netta - hinnet
+
+Mattila Anna - anmattila
+
+Virolainen Jukka - Jukalekvi
+
+Wong Huang - Tiriele
+
+#### Link to the project's frontend repository
+
+https://github.com/Team-Point-Nemo/FrontEnd
