@@ -1,6 +1,7 @@
 package backend.weatherapp.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -27,7 +28,7 @@ public class WeatherAppRestController {
         }
 
         Map<String, Object> main = (Map<String, Object>) response.get("main");
-        Map<String, Object> weather = ((Map<String, Object>[]) response.get("weather"))[0];
+        Map<String, Object> weather = ((List<Map<String, Object>>) response.get("weather")).get(0);
 
         Map<String, Object> simplifiedResponse = new HashMap<>();
         simplifiedResponse.put("city", response.get("name"));
