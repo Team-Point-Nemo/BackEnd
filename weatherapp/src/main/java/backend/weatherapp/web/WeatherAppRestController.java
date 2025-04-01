@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import backend.weatherapp.domain.WeatherResponse;
 import backend.weatherapp.domain.WeatherResponse.MainWeather;
 import backend.weatherapp.domain.WeatherResponse.Weather;
+import backend.weatherapp.domain.WeatherResponse.Wind;
 
 @RestController
 public class WeatherAppRestController {
@@ -30,14 +31,22 @@ public class WeatherAppRestController {
             return ResponseEntity.badRequest().build();
         }
 
+        //from api json
         MainWeather main = response.getMain();
         Weather weather = response.getWeather().get(0);
+        Wind wind = response.getWind();
+        Long dt = response.getDt();
+        String dt_txt = response.getDt_txt();
 
         Map<String, Object> simplifiedResponse = new HashMap<>();
         simplifiedResponse.put("city", response.getName());
         simplifiedResponse.put("temperature", main.getTemp());
-        simplifiedResponse.put("description", weather.getDescription());
+        simplifiedResponse.put("feels_like", main.getFeels_like());
         simplifiedResponse.put("icon", weather.getIcon());
+        simplifiedResponse.put("wind_speed", wind.getSpeed());
+        simplifiedResponse.put("timestamp", dt);
+        simplifiedResponse.put("dt_txt", dt_txt);
+
 
         return ResponseEntity.ok(simplifiedResponse);
     }
