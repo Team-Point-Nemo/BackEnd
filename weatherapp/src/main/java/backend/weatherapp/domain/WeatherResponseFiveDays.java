@@ -8,7 +8,7 @@ import backend.weatherapp.domain.WeatherResponse.Wind;
 public class WeatherResponseFiveDays {
 
     private City city;  
-    private List<Weather> list;  
+    private List<WeatherData> list;  
 
     public City getCity() {
         return city;
@@ -18,11 +18,11 @@ public class WeatherResponseFiveDays {
         this.city = city;
     }
 
-    public List<Weather> getList() {
+    public List<WeatherData> getList() {
         return list;
     }
 
-    public void setList(List<Weather> list) {
+    public void setList(List<WeatherData> list) {
         this.list = list;
     }
 
@@ -40,14 +40,24 @@ public class WeatherResponseFiveDays {
         }
     }
 
-
     public static class Weather {
+        private String icon;
+
+        public String getIcon() {
+            return icon;
+        }
+
+        public void setIcon(String icon) {
+            this.icon = icon;
+        }
+    }
+
+    public static class WeatherData {
         private MainWeather main;
         private Wind wind;
         private Long dt;
         private String dt_txt;
-        private String icon;
-
+        private Weather weather;
 
         public MainWeather getMain() {
             return main;
@@ -81,12 +91,13 @@ public class WeatherResponseFiveDays {
             this.dt_txt = dt_txt;
         }
 
-        public String getIcon() {
-            return icon;
+        public Weather getWeather() {
+            return weather;
         }
 
-        public void setIcon(String icon) {
-            this.icon = icon;
+        public void setWeather(Weather weather) {
+            this.weather = weather;
         }
+
     }
 }
