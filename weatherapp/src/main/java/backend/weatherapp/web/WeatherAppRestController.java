@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import backend.weatherapp.domain.WeatherResponse;
+import backend.weatherapp.domain.WeatherResponse16Days;
 import backend.weatherapp.domain.WeatherResponse.MainWeather;
 import backend.weatherapp.domain.WeatherResponse.Weather;
 import backend.weatherapp.domain.WeatherResponse.Wind;
 import backend.weatherapp.domain.WeatherResponseFiveDays;
-
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -56,7 +55,7 @@ public class WeatherAppRestController {
     }
 
     @GetMapping("/forecast5")
-    public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast() {
+    public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast5() {
 
         String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=" + apiKey+ "&units=metric";
 
@@ -70,5 +69,18 @@ public class WeatherAppRestController {
         return ResponseEntity.ok(response);
     }
     
+    @GetMapping("/forecast16")
+    public  ResponseEntity<WeatherResponse16Days> getWeatherForecast16() {
 
+        String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&cnt=16&appid=" + apiKey+ "&units=metric";
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        WeatherResponse16Days response = restTemplate.getForObject(apiUrl, WeatherResponse16Days.class);
+
+        if (response == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(response);
+    }
 }

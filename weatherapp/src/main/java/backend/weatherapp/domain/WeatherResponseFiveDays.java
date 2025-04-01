@@ -8,7 +8,7 @@ import backend.weatherapp.domain.WeatherResponse.Wind;
 public class WeatherResponseFiveDays {
 
     private City city;  
-    private List<WeatherData> list;  
+    private List<Weather> list;  
 
     public City getCity() {
         return city;
@@ -18,11 +18,11 @@ public class WeatherResponseFiveDays {
         this.city = city;
     }
 
-    public List<WeatherData> getList() {
+    public List<Weather> getList() {
         return list;
     }
 
-    public void setList(List<WeatherData> list) {
+    public void setList(List<Weather> list) {
         this.list = list;
     }
 
@@ -41,7 +41,7 @@ public class WeatherResponseFiveDays {
     }
 
 
-    public static class WeatherData {
+    public static class Weather {
         private MainWeather main;
         private Wind wind;
         private Long dt;
