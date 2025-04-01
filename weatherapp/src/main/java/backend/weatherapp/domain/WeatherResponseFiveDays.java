@@ -2,9 +2,6 @@ package backend.weatherapp.domain;
 
 import java.util.List;
 
-import backend.weatherapp.domain.WeatherResponse.MainWeather;
-import backend.weatherapp.domain.WeatherResponse.Wind;
-
 public class WeatherResponseFiveDays {
 
     private City city;  
@@ -26,10 +23,8 @@ public class WeatherResponseFiveDays {
         this.list = list;
     }
 
-
     public static class City {
         private String name;  
-
 
         public String getName() {
             return name;
@@ -42,6 +37,7 @@ public class WeatherResponseFiveDays {
 
     public static class Weather {
         private String icon;
+        private String description; 
 
         public String getIcon() {
             return icon;
@@ -50,6 +46,14 @@ public class WeatherResponseFiveDays {
         public void setIcon(String icon) {
             this.icon = icon;
         }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
     }
 
     public static class WeatherData {
@@ -57,7 +61,7 @@ public class WeatherResponseFiveDays {
         private Wind wind;
         private Long dt;
         private String dt_txt;
-        private Weather weather;
+        private List<Weather> weather;  // Muutetaan listaksi
 
         public MainWeather getMain() {
             return main;
@@ -91,13 +95,45 @@ public class WeatherResponseFiveDays {
             this.dt_txt = dt_txt;
         }
 
-        public Weather getWeather() {
+        public List<Weather> getWeather() {  // List<Weather>
             return weather;
         }
 
-        public void setWeather(Weather weather) {
+        public void setWeather(List<Weather> weather) {
             this.weather = weather;
         }
+    }
 
+    public static class MainWeather {
+        private Double temp;
+        private Double feels_like;
+
+        public Double getTemp() {
+            return temp;
+        }
+
+        public void setTemp(Double temp) {
+            this.temp = temp;
+        }
+
+        public Double getFeels_like() {
+            return feels_like;
+        }
+
+        public void setFeels_like(Double feels_like) {
+            this.feels_like = feels_like;
+        }
+    }
+
+    public static class Wind {
+        private Double speed;
+
+        public Double getSpeed() {
+            return speed;
+        }
+
+        public void setSpeed(Double speed) {
+            this.speed = speed;
+        }
     }
 }
