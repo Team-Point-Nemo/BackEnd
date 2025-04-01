@@ -13,6 +13,10 @@ import backend.weatherapp.domain.WeatherResponse;
 import backend.weatherapp.domain.WeatherResponse.MainWeather;
 import backend.weatherapp.domain.WeatherResponse.Weather;
 import backend.weatherapp.domain.WeatherResponse.Wind;
+import backend.weatherapp.domain.WeatherResponseFiveDays;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class WeatherAppRestController {
@@ -50,5 +54,21 @@ public class WeatherAppRestController {
 
         return ResponseEntity.ok(simplifiedResponse);
     }
+
+    @GetMapping("/forecast5")
+    public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast() {
+
+        String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=" + apiKey;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        WeatherResponseFiveDays response = restTemplate.getForObject(apiUrl, WeatherResponseFiveDays.class);
+
+        if (response == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(response);
+    }
+    
 
 }
