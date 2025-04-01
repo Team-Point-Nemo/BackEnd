@@ -57,14 +57,6 @@ public class WeatherResponseFiveDays {
             this.main = main;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
         public Wind getWind() {
             return wind;
         }
@@ -87,14 +79,6 @@ public class WeatherResponseFiveDays {
 
         public void setDt_txt(String dt_txt) {
             this.dt_txt = dt_txt;
-        }
-
-        public Double getTemperature() {
-            return temperature;
-        }
-
-        public void setTemperature(Double temperature) {
-            this.temperature = temperature;
         }
 
         public String getIcon() {
