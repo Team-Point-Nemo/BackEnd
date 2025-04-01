@@ -23,67 +23,74 @@ public class WeatherResponse {
 
     public WeatherResponse() {
     }
-
+    
     // MainWeather
     public static class Main {
         private Double temp;
         private Double feelsLike;
-
+        
         public Double getTemp() {
             return temp;
         }
-
+        
         public void setTemp(Double temp) {
             this.temp = temp;
         }
-
+        
         public Double getFeelsLike() {
             return feelsLike;
         }
-
+        
         public void setFeelsLike(Double feelsLike) {
             this.feelsLike = feelsLike;
         }
     }
-
+    
     public static class Weather {
         private String icon;
-
+        
         public String getIcon() {
             return icon;
         }
-
+        
         public void setIcon(String icon) {
             this.icon = icon;
         }
     }
-
+    
     public static class Wind {
         private Double speed;
-
+        
         public Double getSpeed() {
             return speed;
         }
-
+        
         public void setSpeed(Double speed) {
             this.speed = speed;
         }
     }
-
+    
     public String getDt() {
         return dt;
     }
-
+    
     public void setDt(String dt) {
         this.dt = dt;
     }
-
+    
     public String getDtText() {
         return dtText;
     }
-
+    
     public void setDtText(String dtText) {
         this.dtText = dtText;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     // Getters and Setters
@@ -117,13 +124,6 @@ public class WeatherResponse {
 
     public void setWeather(Weather weather) {
         this.weather = weather;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 
 }
