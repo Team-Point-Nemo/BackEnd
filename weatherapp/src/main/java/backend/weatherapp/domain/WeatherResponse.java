@@ -4,126 +4,105 @@ import java.util.List;
 
 public class WeatherResponse {
 
-    private Main main;
+    private MainWeather main;
+    private List<Weather> weather;
     private String name;
-    private List<Weather> listOfWeathers;
-    private Weather weather;
-    private Wind wind;
-    private String dt;
-    private String dtText;
-
-    public WeatherResponse(Main main, List<Weather> listOfWeathers, Weather weather, Wind Wind, String dt, String dtText, String name) {
-        this.main = main;
-        this.name = name;
-        this.listOfWeathers = listOfWeathers;
-        this.wind = Wind;
-        this.dt = dt;
-        this.dtText = dtText;
-    }
+    private Double temperature;
+    private String description;
+    private String icon;
 
     public WeatherResponse() {
     }
-    
-    // MainWeather
-    public static class Main {
+
+    public WeatherResponse(String city, Double temperature, String description, String icon) {
+        this.name = city;
+        this.temperature = temperature;
+        this.description = description;
+        this.icon = icon;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getTemperature() {
+        return temperature;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setName(String city) {
+        this.name = city;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public MainWeather getMain() {
+        return main;
+    }
+
+    public void setMain(MainWeather main) {
+        this.main = main;
+    }
+
+    public static class MainWeather {
         private Double temp;
-        private Double feelsLike;
-        
+
         public Double getTemp() {
             return temp;
         }
-        
+
         public void setTemp(Double temp) {
             this.temp = temp;
         }
-        
-        public Double getFeelsLike() {
-            return feelsLike;
-        }
-        
-        public void setFeelsLike(Double feelsLike) {
-            this.feelsLike = feelsLike;
-        }
     }
-    
+
+    public List<Weather> getWeather() {
+        return weather;
+    }
+
+    public void setWeather(List<Weather> weather) {
+        this.weather = weather;
+    }
+
     public static class Weather {
+        private String description;
         private String icon;
-        
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
         public String getIcon() {
             return icon;
         }
-        
+
         public void setIcon(String icon) {
             this.icon = icon;
         }
     }
-    
-    public static class Wind {
-        private Double speed;
-        
-        public Double getSpeed() {
-            return speed;
-        }
-        
-        public void setSpeed(Double speed) {
-            this.speed = speed;
-        }
-    }
-    
-    public String getDt() {
-        return dt;
-    }
-    
-    public void setDt(String dt) {
-        this.dt = dt;
-    }
-    
-    public String getDtText() {
-        return dtText;
-    }
-    
-    public void setDtText(String dtText) {
-        this.dtText = dtText;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    // Getters and Setters
-    public List<Weather> getListOfWeathers() {
-        return listOfWeathers;
-    }
 
-    public void setListOfWeathers(List<Weather> listOfWeathers) {
-        this.listOfWeathers = listOfWeathers;
-    }
 
-    public Wind getWind() {
-        return wind;
-    }
-
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public Weather getWeather() {
-        return weather;
-    }
-
-    public void setWeather(Weather weather) {
-        this.weather = weather;
-    }
 
 }

@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import backend.weatherapp.domain.WeatherResponse;
-import backend.weatherapp.domain.WeatherResponse.Main;
+import backend.weatherapp.domain.WeatherResponse.MainWeather;
 import backend.weatherapp.domain.WeatherResponse.Weather;
-import backend.weatherapp.domain.WeatherResponse.Wind;
 
 @RestController
 public class WeatherAppRestController {
@@ -31,15 +30,13 @@ public class WeatherAppRestController {
             return ResponseEntity.badRequest().build();
         }
 
-        Main main = response.getMain();
-        Weather weather = response.getWeather();
-        Wind wind = response.getWind();
+        MainWeather main = response.getMain();
+        Weather weather = response.getWeather().get(0);
 
         Map<String, Object> simplifiedResponse = new HashMap<>();
         simplifiedResponse.put("city", response.getName());
         simplifiedResponse.put("temperature", main.getTemp());
-        simplifiedResponse.put("feelsLike", main.getFeelsLike());
-        simplifiedResponse.put("windSpeed", wind.getSpeed());
+        simplifiedResponse.put("description", weather.getDescription());
         simplifiedResponse.put("icon", weather.getIcon());
 
         return ResponseEntity.ok(simplifiedResponse);
