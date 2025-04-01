@@ -43,11 +43,9 @@ public class WeatherResponseFiveDays {
 
     public static class WeatherData {
         private MainWeather main;
-        private String name; 
         private Wind wind;
         private Long dt;
         private String dt_txt;
-        private Double temperature;
         private String icon;
 
 
