@@ -55,6 +55,24 @@ public class WeatherAppRestController {
         return ResponseEntity.ok(simplifiedResponse);
     }
 
+    @GetMapping("/current-weather")
+    public  ResponseEntity<WeatherResponse> getCurrentWeatherInLocation(@RequestParam double lat, @RequestParam double lon) {
+
+        String apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=" + apiKey+ "&units=metric";
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        WeatherResponse response = restTemplate.getForObject(apiUrl, WeatherResponse.class);
+
+        if (response == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        
+        return ResponseEntity.ok(response);
+    }
+    
+
     @GetMapping("/forecast5")
     public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast5(@RequestParam double lat, @RequestParam double lon) {
 

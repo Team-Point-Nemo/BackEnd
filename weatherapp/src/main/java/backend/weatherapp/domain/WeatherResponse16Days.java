@@ -2,15 +2,14 @@ package backend.weatherapp.domain;
 
 import java.util.List;
 
-
 //todo: add attributes, getters setters etc for forecast 16 and 
 
 //ota dt, tempDay, feels_like: day, wind, weather: icon
 public class WeatherResponse16Days {
 
-    private City city; 
-    private List<WeatherData> list; 
-    
+    private City city;
+    private List<WeatherData> list;
+
     public City getCity() {
         return city;
     }
@@ -28,7 +27,7 @@ public class WeatherResponse16Days {
     }
 
     public static class City {
-        private String name;  
+        private String name;
 
         public String getName() {
             return name;
@@ -41,50 +40,56 @@ public class WeatherResponse16Days {
 
     public static class WeatherData {
         private Long dt;
-        private List<Weather> weather;  
+        private List<Weather> weather;
         private FeelsLike feels_like;
         private Temperature temp;
         private Double speed;
-       
+
         public Long getDt() {
             return dt;
         }
+
         public void setDt(Long dt) {
             this.dt = dt;
         }
+
         public List<Weather> getWeather() {
             return weather;
         }
+
         public void setWeather(List<Weather> weather) {
             this.weather = weather;
         }
+
         public FeelsLike getFeels_like() {
             return feels_like;
         }
+
         public void setFeels_like(FeelsLike feels_like) {
             this.feels_like = feels_like;
         }
+
         public Temperature getTemp() {
             return temp;
         }
+
         public void setTemp(Temperature temp) {
             this.temp = temp;
         }
+
         public Double getSpeed() {
             return speed;
         }
+
         public void setSpeed(Double speed) {
             this.speed = speed;
         }
 
-        
-
     }
-
 
     public static class Weather {
         private String icon;
-        private String description; 
+        private String description;
 
         public String getIcon() {
             return icon;
@@ -103,7 +108,7 @@ public class WeatherResponse16Days {
         }
     }
 
-    public static class FeelsLike{
+    public static class FeelsLike {
         private Double day;
 
         public Double getDay() {
@@ -112,7 +117,7 @@ public class WeatherResponse16Days {
 
         public void setDay(Double day) {
             this.day = day;
-        }       
+        }
     }
 
     public static class Temperature {
@@ -124,27 +129,34 @@ public class WeatherResponse16Days {
         public Double getDay() {
             return day;
         }
+
         public void setDay(Double day) {
             this.day = day;
         }
+
         public Double getNight() {
             return night;
         }
+
         public void setNight(Double night) {
             this.night = night;
         }
+
         public Double getMax() {
             return max;
         }
+
         public void setMax(Double max) {
             this.max = max;
         }
+
         public Double getMin() {
             return min;
         }
+
         public void setMin(Double min) {
             this.min = min;
         }
     }
-    
+
 }
