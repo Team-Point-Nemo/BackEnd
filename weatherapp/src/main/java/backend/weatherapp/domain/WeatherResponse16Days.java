@@ -10,7 +10,7 @@ public class WeatherResponse16Days {
 
     private City city; 
     private List<WeatherData> list; 
-    private double speed;
+    private Double speed;
 
     
     public City getCity() {
@@ -42,17 +42,11 @@ public class WeatherResponse16Days {
     }
 
     public static class WeatherData {
-        private double speed;
         private Long dt;
         private List<Weather> weather;  
         private FeelsLike feels_like;
         private Temperature temp;
-        public double getSpeed() {
-            return speed;
-        }
-        public void setSpeed(double speed) {
-            this.speed = speed;
-        }
+       
         public Long getDt() {
             return dt;
         }
@@ -103,47 +97,55 @@ public class WeatherResponse16Days {
     }
 
     public static class FeelsLike{
-        private double day;
+        private Double day;
 
-        public double getDay() {
+        public Double getDay() {
             return day;
         }
 
-        public void setDay(double day) {
+        public void setDay(Double day) {
             this.day = day;
         }       
     }
 
     public static class Temperature {
-        private double day;
-        private double night;
-        private double max;
-        private double min;
+        private Double day;
+        private Double night;
+        private Double max;
+        private Double min;
 
-        public double getDay() {
+        public Double getDay() {
             return day;
         }
-        public void setDay(double day) {
+        public void setDay(Double day) {
             this.day = day;
         }
-        public double getNight() {
+        public Double getNight() {
             return night;
         }
-        public void setNight(double night) {
+        public void setNight(Double night) {
             this.night = night;
         }
-        public double getMax() {
+        public Double getMax() {
             return max;
         }
-        public void setMax(double max) {
+        public void setMax(Double max) {
             this.max = max;
         }
-        public double getMin() {
+        public Double getMin() {
             return min;
         }
-        public void setMin(double min) {
+        public void setMin(Double min) {
             this.min = min;
         }
+    }
+
+    public Double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Double speed) {
+        this.speed = speed;
     }
 
     
