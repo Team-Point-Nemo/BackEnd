@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,7 +25,7 @@ public class WeatherAppRestController {
     private String apiKey;
 
     @GetMapping("/weather")
-    public ResponseEntity<Map<String, Object>> getWeather() {
+    public ResponseEntity<Map<String, Object>> getWeather () {
         String apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=Helsinki&units=metric&appid=" + apiKey;
         RestTemplate restTemplate = new RestTemplate();
 
@@ -55,9 +56,9 @@ public class WeatherAppRestController {
     }
 
     @GetMapping("/forecast5")
-    public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast5() {
+    public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast5(@RequestParam double lat, @RequestParam double lon) {
 
-        String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=" + apiKey+ "&units=metric";
+        String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat +"&lon=" + lon + "&appid=" + apiKey+ "&units=metric";
 
         RestTemplate restTemplate = new RestTemplate();
 
