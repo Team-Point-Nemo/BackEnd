@@ -9,8 +9,10 @@ import java.util.List;
 public class WeatherResponse16Days {
 
     private City city; 
-    private List<WeatherData> list;  
+    private List<WeatherData> list; 
+    private double speed;
 
+    
     public City getCity() {
         return city;
     }
@@ -40,68 +42,44 @@ public class WeatherResponse16Days {
     }
 
     public static class WeatherData {
-        private Wind speed;
+        private double speed;
         private Long dt;
         private List<Weather> weather;  
         private FeelsLike feels_like;
         private Temperature temp;
-
-
+        public double getSpeed() {
+            return speed;
+        }
+        public void setSpeed(double speed) {
+            this.speed = speed;
+        }
+        public Long getDt() {
+            return dt;
+        }
+        public void setDt(Long dt) {
+            this.dt = dt;
+        }
+        public List<Weather> getWeather() {
+            return weather;
+        }
+        public void setWeather(List<Weather> weather) {
+            this.weather = weather;
+        }
         public FeelsLike getFeels_like() {
             return feels_like;
         }
-
         public void setFeels_like(FeelsLike feels_like) {
             this.feels_like = feels_like;
         }
-
         public Temperature getTemp() {
             return temp;
         }
-
         public void setTemp(Temperature temp) {
             this.temp = temp;
         }
 
-        public Long getDt() {
-            return dt;
-        }
-
-        public void setDt(Long dt) {
-            this.dt = dt;
-        }
-
-
-        public List<Weather> getWeather() { 
-            return weather;
-        }
-
-        public void setWeather(List<Weather> weather) {
-            this.weather = weather;
-        }
-
-        public Wind getSpeed() {
-            return speed;
-        }
-
-        public void setSpeed(Wind speed) {
-            this.speed = speed;
-        }
-
     }
 
-    public static class Wind {
-        private double speed;
-
-        public double getSpeed() {
-            return speed;
-        }
-
-        public void setSpeed(double speed) {
-            this.speed = speed;
-        }
-
-    }
 
     public static class Weather {
         private String icon;
@@ -167,4 +145,6 @@ public class WeatherResponse16Days {
             this.min = min;
         }
     }
+
+    
 }
