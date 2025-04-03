@@ -61,7 +61,7 @@ public class WeatherResponseFiveDays {
         private Wind wind;
         private Long dt;
         private String dt_txt;
-        private List<Weather> weather;  // Muutetaan listaksi
+        private List<Weather> weather;  
 
         public MainWeather getMain() {
             return main;
@@ -95,7 +95,7 @@ public class WeatherResponseFiveDays {
             this.dt_txt = dt_txt;
         }
 
-        public List<Weather> getWeather() {  // List<Weather>
+        public List<Weather> getWeather() { 
             return weather;
         }
 
