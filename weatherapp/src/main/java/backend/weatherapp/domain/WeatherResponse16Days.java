@@ -2,7 +2,6 @@ package backend.weatherapp.domain;
 
 import java.util.List;
 
-import backend.weatherapp.domain.WeatherResponseFiveDays.City;
 
 //todo: add attributes, getters setters etc for forecast 16 and 
 
@@ -41,7 +40,7 @@ public class WeatherResponse16Days {
     }
 
     public static class WeatherData {
-        private String speed;
+        private Wind speed;
         private Long dt;
         private List<Weather> weather;  
         private FeelsLike feels_like;
@@ -81,13 +80,27 @@ public class WeatherResponse16Days {
             this.weather = weather;
         }
 
-        public String getSpeed() {
+        public Wind getSpeed() {
             return speed;
         }
 
-        public void setSpeed(String speed) {
+        public void setSpeed(Wind speed) {
             this.speed = speed;
         }
+
+    }
+
+    public static class Wind {
+        private double speed;
+
+        public double getSpeed() {
+            return speed;
+        }
+
+        public void setSpeed(double speed) {
+            this.speed = speed;
+        }
+
     }
 
     public static class Weather {
@@ -112,45 +125,45 @@ public class WeatherResponse16Days {
     }
 
     public static class FeelsLike{
-        private String day;
+        private double day;
 
-        public String getDay() {
+        public double getDay() {
             return day;
         }
 
-        public void setDay(String day) {
+        public void setDay(double day) {
             this.day = day;
         }       
     }
 
     public static class Temperature {
-        private String day;
-        private String night;
-        private String max;
-        private String min;
+        private double day;
+        private double night;
+        private double max;
+        private double min;
 
-        public String getDay() {
+        public double getDay() {
             return day;
         }
-        public void setDay(String day) {
+        public void setDay(double day) {
             this.day = day;
         }
-        public String getNight() {
+        public double getNight() {
             return night;
         }
-        public void setNight(String night) {
+        public void setNight(double night) {
             this.night = night;
         }
-        public String getMax() {
+        public double getMax() {
             return max;
         }
-        public void setMax(String max) {
+        public void setMax(double max) {
             this.max = max;
         }
-        public String getMin() {
+        public double getMin() {
             return min;
         }
-        public void setMin(String min) {
+        public void setMin(double min) {
             this.min = min;
         }
     }
