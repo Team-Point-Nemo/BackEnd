@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import backend.weatherapp.domain.WeatherNowResponse;
 import backend.weatherapp.domain.WeatherResponse;
 import backend.weatherapp.domain.WeatherResponse16Days;
 import backend.weatherapp.domain.WeatherResponse.MainWeather;
@@ -53,6 +54,21 @@ public class WeatherAppRestController {
 
 
         return ResponseEntity.ok(simplifiedResponse);
+    }
+
+    @GetMapping("/weather-now")
+    public  ResponseEntity<WeatherNowResponse> getWeatherInCurrentLocation(@RequestParam double lat, @RequestParam double lon) {
+
+        String apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +"&lon=" + lon + "&appid=" + apiKey+ "&units=metric";
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        WeatherNowResponse response = restTemplate.getForObject(apiUrl, WeatherNowResponse.class);
+
+        if (response == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/forecast5")
