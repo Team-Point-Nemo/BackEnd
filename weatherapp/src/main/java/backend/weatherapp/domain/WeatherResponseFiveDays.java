@@ -35,26 +35,7 @@ public class WeatherResponseFiveDays {
         }
     }
 
-    public static class Weather {
-        private String icon;
-        private String description; 
-
-        public String getIcon() {
-            return icon;
-        }
-
-        public void setIcon(String icon) {
-            this.icon = icon;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-    }
+    
 
     public static class WeatherData {
         private MainWeather main;
@@ -101,6 +82,28 @@ public class WeatherResponseFiveDays {
 
         public void setWeather(List<Weather> weather) {
             this.weather = weather;
+        }
+    }
+
+
+    public static class Weather {
+        private String icon;
+        private String description; 
+
+        public String getIcon() {
+            return icon;
+        }
+
+        public void setIcon(String icon) {
+            this.icon = icon;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
         }
     }
 

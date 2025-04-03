@@ -10,8 +10,6 @@ public class WeatherResponse16Days {
 
     private City city; 
     private List<WeatherData> list; 
-    private Double speed;
-
     
     public City getCity() {
         return city;
@@ -46,6 +44,7 @@ public class WeatherResponse16Days {
         private List<Weather> weather;  
         private FeelsLike feels_like;
         private Temperature temp;
+        private Double speed;
        
         public Long getDt() {
             return dt;
@@ -71,6 +70,14 @@ public class WeatherResponse16Days {
         public void setTemp(Temperature temp) {
             this.temp = temp;
         }
+        public Double getSpeed() {
+            return speed;
+        }
+        public void setSpeed(Double speed) {
+            this.speed = speed;
+        }
+
+        
 
     }
 
@@ -139,14 +146,5 @@ public class WeatherResponse16Days {
             this.min = min;
         }
     }
-
-    public Double getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(Double speed) {
-        this.speed = speed;
-    }
-
     
 }
