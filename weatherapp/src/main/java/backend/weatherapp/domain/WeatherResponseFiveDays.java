@@ -4,8 +4,8 @@ import java.util.List;
 
 public class WeatherResponseFiveDays {
 
-    private City city;  
-    private List<WeatherData> list;  
+    private City city;
+    private List<WeatherData> list;
 
     public City getCity() {
         return city;
@@ -24,7 +24,7 @@ public class WeatherResponseFiveDays {
     }
 
     public static class City {
-        private String name;  
+        private String name;
 
         public String getName() {
             return name;
@@ -35,14 +35,12 @@ public class WeatherResponseFiveDays {
         }
     }
 
-    
-
     public static class WeatherData {
         private MainWeather main;
         private Wind wind;
         private Long dt;
         private String dt_txt;
-        private List<Weather> weather;  
+        private List<Weather> weather;
 
         public MainWeather getMain() {
             return main;
@@ -76,7 +74,7 @@ public class WeatherResponseFiveDays {
             this.dt_txt = dt_txt;
         }
 
-        public List<Weather> getWeather() { 
+        public List<Weather> getWeather() {
             return weather;
         }
 
@@ -85,10 +83,9 @@ public class WeatherResponseFiveDays {
         }
     }
 
-
     public static class Weather {
         private String icon;
-        private String description; 
+        private String description;
 
         public String getIcon() {
             return icon;

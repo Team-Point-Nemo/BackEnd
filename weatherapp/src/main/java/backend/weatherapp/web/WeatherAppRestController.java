@@ -73,7 +73,7 @@ public class WeatherAppRestController {
 
     @GetMapping("/forecast5")
     public  ResponseEntity<WeatherResponseFiveDays> getWeatherForecast5(@RequestParam double lat, @RequestParam double lon) {
-
+    
         String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat +"&lon=" + lon + "&appid=" + apiKey+ "&units=metric";
 
         RestTemplate restTemplate = new RestTemplate();
@@ -87,9 +87,9 @@ public class WeatherAppRestController {
     }
     
     @GetMapping("/forecast16")
-    public  ResponseEntity<WeatherResponse16Days> getWeatherForecast16() {
+    public  ResponseEntity<WeatherResponse16Days> getWeatherForecast16(@RequestParam double lat, @RequestParam double lon) {
 
-        String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&cnt=16&appid=" + apiKey+ "&units=metric";
+        String apiUrl = "https://api.openweathermap.org/data/2.5/forecast/daily?lat" + lat +"&lon=" + lon + "&cnt=16&appid=" + apiKey+ "&units=metric";
 
         RestTemplate restTemplate = new RestTemplate();
 
