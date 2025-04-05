@@ -86,6 +86,7 @@ public class WeatherAppRestController {
         return ResponseEntity.ok(response);
     }
    
+
     @GetMapping("/forecast16")
     public  ResponseEntity<WeatherResponse16Days> getWeatherForecast16(@RequestParam double lat, @RequestParam double lon) {
 
@@ -101,24 +102,11 @@ public class WeatherAppRestController {
         return ResponseEntity.ok(response);
     }
 
-
-    //for localhost testing
-    // @GetMapping("/forecast16")
-    // public  ResponseEntity<WeatherResponse16Days> getWeatherForecast16() {
-
-    //     String apiUrl = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=44.34&lon=10.99&cnt=7&appid=" + apiKey+ "&units=metric";
-
-    
-
-    //     RestTemplate restTemplate = new RestTemplate();
-
-    //     WeatherResponse16Days response = restTemplate.getForObject(apiUrl, WeatherResponse16Days.class);
-
-    //     if (response == null) {
-    //         return ResponseEntity.badRequest().build();
-    //     }
-    //     return ResponseEntity.ok(response);
-    // }
+    //Rain tiles for rain radar
+    @GetMapping("/rain-tiles")
+    public String getRainTiles(){
+        return "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=" + apiKey;
+    }
 
 
 }
