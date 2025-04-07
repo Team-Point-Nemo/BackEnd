@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
+//import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -64,7 +64,6 @@ public class WeatherAppRestController {
                 + apiKey + "&units=metric";
 
         RestTemplate restTemplate = new RestTemplate();
-
         WeatherNowResponse response = restTemplate.getForObject(apiUrl, WeatherNowResponse.class);
 
         if (response == null) {
@@ -81,7 +80,6 @@ public class WeatherAppRestController {
                 + apiKey + "&units=metric";
 
         RestTemplate restTemplate = new RestTemplate();
-
         WeatherResponseFiveDays response = restTemplate.getForObject(apiUrl, WeatherResponseFiveDays.class);
 
         if (response == null) {
@@ -98,7 +96,6 @@ public class WeatherAppRestController {
                 + "&cnt=16&appid=" + apiKey + "&units=metric";
 
         RestTemplate restTemplate = new RestTemplate();
-
         WeatherResponse16Days response = restTemplate.getForObject(apiUrl, WeatherResponse16Days.class);
 
         if (response == null) {
@@ -107,35 +104,34 @@ public class WeatherAppRestController {
         return ResponseEntity.ok(response);
     }
 
-    // Rain tiles for rain radar
-    @GetMapping("/rain-tiles")
-    public String getRainTiles() {
-        return "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=" + apiKey;
-    }
+    // // Rain tiles for rain radar
+    // @GetMapping("/rain-tiles")
+    // public String getRainTiles() {
+    //     return "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=" + apiKey;
+    // }
 
-    //Created with the help of ChatGPT
-    @GetMapping("/{z}/{x}/{y}.png")
-    public ResponseEntity<byte[]> proxyRainTile(
-            @PathVariable String z,
-            @PathVariable String x,
-            @PathVariable String y) {
+    // // Created with the help of ChatGPT
 
+    // @GetMapping("/{z}/{x}/{y}.png")
+    // public ResponseEntity<byte[]> proxyRainTile(
+    //         @PathVariable String z,
+    //         @PathVariable String x,
+    //         @PathVariable String y) {
 
-        String url = String.format(
-                "https://tile.openweathermap.org/map/precipitation_new/%s/%s/%s.png?appid=%s",
-                z, x, y, apiKey);
+    //     String url = String.format(
+    //             "https://tile.openweathermap.org/map/precipitation_new/%s/%s/%s.png?appid=%s",
+    //             z, x, y, apiKey);
 
+    //     RestTemplate restTemplate = new RestTemplate();
 
-                RestTemplate restTemplate = new RestTemplate();
+    //     try {
+    //         return ResponseEntity
+    //                 .ok()
+    //                 .contentType(MediaType.IMAGE_PNG)
+    //                 .body(restTemplate.getForObject(url, byte[].class));
+    //     } catch (Exception e) {
+    //         return ResponseEntity.status(502).build();
+    //     }
+    // }
 
-        try {
-            return ResponseEntity
-                    .ok()
-                    .contentType(MediaType.IMAGE_PNG)
-                    .body(restTemplate.getForObject(url, byte[].class));
-        } catch (Exception e) {
-            return ResponseEntity.status(502).build(); 
-        }
-
-}
 }
