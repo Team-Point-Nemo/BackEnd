@@ -52,7 +52,6 @@ public class WeatherResponse {
         return wind;
     }
     
-
     public String getDt_txt() {
         return dt_txt;
     }
