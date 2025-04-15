@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import backend.weatherapp.domain.WeatherCityResponse;
 import backend.weatherapp.domain.WeatherNowResponse;
 import backend.weatherapp.domain.WeatherResponse16Days;
 import backend.weatherapp.domain.WeatherResponseFiveDays;
@@ -26,6 +27,21 @@ public class WeatherAppRestController {
 
         RestTemplate restTemplate = new RestTemplate();
         WeatherNowResponse response = restTemplate.getForObject(apiUrl, WeatherNowResponse.class);
+
+        if (response == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/city")
+    public ResponseEntity<WeatherCityResponse> getCityWeather(@RequestParam String city) {
+
+        String apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" 
+                + apiKey + "&units=metric";
+
+        RestTemplate restTemplate = new RestTemplate();
+        WeatherCityResponse response = restTemplate.getForObject(apiUrl, WeatherCityResponse.class);
 
         if (response == null) {
             return ResponseEntity.badRequest().build();
