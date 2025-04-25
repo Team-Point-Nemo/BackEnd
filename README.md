@@ -1,18 +1,101 @@
 # WeatherApp 
 
-We are making a weather app for the course Software Project 2. The user can see the current and future weather.
+We are building a weather app as part of the Software Project 2 course. The app allows users to view both current and future weather forecasts. Users can check real-time weather conditions with visualized view over map, detailed five day forecast and daily summaries for 16 days. Weather data is available for both user location and city search.
+
+This is the backend for our weather application developed as part of the Software Project 2 course. It serves weather data fetched from the OpenWeather API, secured through our backend using Java and Spring Boot
+
+## Features
+
+- Secure handling of the OpenWeather API key
+- Current weather by coordinates or city name
+- 5-day weather forecast with 3-hour increments
+- 16-day daily forecast
+- Rain, cloud and temperature tiles for the map
 
 ## Technologies
+### Backend
+- **Java**: We used Java to hide the API key and to handle API requests to OpenWeather through our own backen, in order to prevent exposing the key in the frontend.
+- **Spring Boot**: A framework for building the backend and managing HTTP requests to and from OpenWeather API.
 
-We will be using React Native to make a mobile app. For project management and version control, we will use Github and Git.
+### Cloud Deployment
+- **Rahti**: We decided to use the Rahti service to deploy our backend, ensuring public access to our API while keeping the API key secure.
 
-The coding languages on Front end will be JavaScript and Tailwind.
+## Prerequisites
 
-On Back end we will be using Firebase.
+Before starting the application, make sure you have the following installed:
 
-For testing, we will use Expo Go. We will be testing the app both manually and using unit tests.
+- **Java 17** or newer (required for Spring Boot)
+- **Maven** (for building and running the application)
+- **Spring Boot** (this should be automatically handled if you use the `mvnw` wrapper)
+- **OpenWeather API KEY**
+  
+Get your own OpenWeather API key from
+```bash
+https://openweathermap.org/price
+```
 
-Additionally, we will practise using branches in Git.
+## How to use the API
+
+### Endpoints
+| **Method** | **Endpoint**     | **Parameters**    | **Description**                      |
+|------------|------------------|-------------------|--------------------------------------|
+| GET        | `/weather-now`   | `lat`, `lon`      | Get current weather by coordinates   |
+| GET        | `/city`          | `city`            | Get current weather by city name     |
+| GET        | `/forecast5`     | `lat`, `lon`      | Get 5-day forecast                    |
+| GET        | `/forecast16`    | `lat`, `lon`      | Get 16-day daily summary             |
+| GET        | `/tiles/{layer}/{z}/{x}/{y}.png`     | `layer`, `z`, `x`, `y`            | Get weather tile image from OpenWeather       |
+
+### Example request
+
+```bash
+http://localhost:8080/weather-now?lat=60.1699&lon=24.9384
+```
+
+## How to get started
+
+Clone repository
+```bash
+git clone https://github.com/Team-Point-Nemo/BackEnd.git
+```
+
+Navigate to the WeatherApp directory:
+```bash
+ cd .\BackEnd\weatherapp\
+```
+
+Open the project in your code editor
+```bash
+code .
+```
+
+Create `resources` directory to \weatherapp\main\resources
+```bash
+cd .\src\ 
+ cd .\main\
+mkdir resources
+cd resources
+```
+
+Create the `application.properties` file in the `resources` directory
+
+Add your own OpenWeather API key to application.properties file
+```bash
+weather.api.key={YOUR_API_KEY}
+```
+
+Run the application in weatherapp directory using the Maven wrapper
+```bash
+./mvnw spring-boot:run
+```
+
+or Press PLAY in Spring boot Dashboard
+
+Access the API at `http://localhost:8080`
+
+Example request for the 5-day forecast with 3-hour increments
+```bash
+http://localhost:8080/forecast5?lat=60.1699&lon=24.9384
+```
 
 ## Creators
 
