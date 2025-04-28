@@ -14,7 +14,7 @@ This is the backend for our weather application developed as part of the Softwar
 
 ## Technologies
 ### Backend
-- **Java**: We used Java to hide the API key and to handle API requests to OpenWeather through our own backen, in order to prevent exposing the key in the frontend.
+- **Java**: We used Java to hide the API key and to handle API requests to OpenWeather through our own backend, in order to prevent exposing the key in the frontend.
 - **Spring Boot**: A framework for building the backend and managing HTTP requests to and from OpenWeather API.
 
 ### Cloud Deployment
