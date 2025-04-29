@@ -53,6 +53,8 @@ http://localhost:8080/weather-now?lat=60.1699&lon=24.9384
 
 ## How to get started
 
+To use our application, this Backend repository is not necessary because you only need the Frontend side. However, if you want to include this repository in the application, you can follow the next steps:
+
 Clone repository
 ```bash
 git clone https://github.com/Team-Point-Nemo/BackEnd.git
